@@ -2,6 +2,7 @@
 // koneksi database
 include 'koneksi.php';
 
+
 //kode otomatis
 $q = mysqli_query($koneksi, "SELECT kode FROM tbarang order by kode desc limit 1");
 $datax = mysqli_fetch_array($q);
@@ -10,17 +11,17 @@ if ($datax) {
     $no = $no_terakhir + 1;
 
     if ($no > 0 and $no < 10) {
-        $kode = "00".$no;
-    } else if($no > 10 and $no < 100){
+        $kode = "00" . $no;
+    } else if ($no > 10 and $no < 100) {
         $kode = "0" . $no;
-    } else if($no > 100){
+    } else if ($no > 100) {
         $kode = $no;
     }
-} else{
-    $kode="001";
+} else {
+    $kode = "001";
 }
 
-$tahun = date ('Y');
+$tahun = date('Y');
 $vkode = "INV-" . $tahun . '-' . $kode;
 //INV-2023-001
 
@@ -144,7 +145,9 @@ if (isset($_GET['hal'])) {
                 <div class="card">
                     <div class="card-header bg-info text-light">
                         Form Input Data Barang
+                        
                     </div>
+                    <a href="logout.php" class="btn btn-danger col-md-2">Logout</a>
                     <div class="card-body">
 
                         <form method="POST">
@@ -229,7 +232,8 @@ if (isset($_GET['hal'])) {
                 <div class="col-md-6 mx-auto">
                     <form method="POST">
                         <div class="input-group mb-3">
-                            <input type="text" name="tcari" value="<?= @$_POST['tcari'] ?>" class="form-control" placeholder="Masukkan kata kunci">
+                            <input type="text" name="tcari" value="<?= @$_POST['tcari'] ?>" class="form-control"
+                                placeholder="Masukkan kata kunci">
                             <button class="btn btn-primary" name="bcari" type="submit">Cari</button>
                             <button class="btn btn-danger" name="breset" type="submit">Reset</button>
                         </div>
@@ -258,7 +262,7 @@ if (isset($_GET['hal'])) {
                         $q = "SELECT * FROM  tbarang WHERE kode like '%$keyword%' or nama like '%$keyword%' order by 
                         id_barang desc ";
                     } else {
-                        $q =  "SELECT * FROM tbarang order by id_barang desc";
+                        $q = "SELECT * FROM tbarang order by id_barang desc";
                     }
 
                     $tampil = mysqli_query($koneksi, $q);

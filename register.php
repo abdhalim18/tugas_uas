@@ -4,7 +4,7 @@ session_start();
 
 // Check if the user is already logged in
 if (isset($_SESSION['username'])) {
-    header("location: sukses_login.php");
+    header("location: index.php");
     exit(); // Stop further execution
 }
 
