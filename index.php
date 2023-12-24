@@ -138,7 +138,7 @@ if (isset($_GET['hal'])) {
     <!-- container -->
     <div class="container">
         <h3 class="text-center">Data Inventaris Sekolah</h3>
-        <h3 class="text-center">SMA DU 2</h3>
+        <h3 class="text-center">SMA Darul Ulum</h3>
 
         <div class="row">
             <div class="col-md-7 mx-auto">
